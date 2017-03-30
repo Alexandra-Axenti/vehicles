@@ -1,23 +1,13 @@
 class Vehicle
+    attr_reader(:make,:model,:year,:id)
+
     @@vehicles = []
 
-    define_method(:initialize) do |make, model, year|
-      @make = make
-      @model = model
-      @year = year
+    define_method(:initialize) do |attributes|
+      @make = attributes.fetch(:make)
+      @model = attributes.fetch(:model)
+      @year = attributes.fetch(:year)
       @id = @@vehicles.length().+(1)
-    end
-
-    define_method(:make) do
-      @make
-    end
-
-    define_method(:model) do
-      @model
-    end
-
-    define_method(:year) do
-      @year
     end
 
     define_method(:id) do
